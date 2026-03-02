@@ -359,7 +359,7 @@ html[data-theme="light"] .contest-header strong{color:var(--gold);}
 
 
 .switchers{display:flex;align-items:center;gap:8px;margin-left:16px;}
-.sw-btn{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif;}
+.sw-btn{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif;}.sw-lang-btn{display:flex;align-items:center;gap:7px;}
 html[data-theme="light"] .sw-btn{border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4);}
 .sw-btn:hover,.sw-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08);}
 html[data-theme="light"] .sw-btn:hover,html[data-theme="light"] .sw-btn.active{background:rgba(140,100,32,.08);}
@@ -418,7 +418,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
   </ul>
   
   <div class="switchers">
-    <button class="sw-btn" id="sw-lang" onclick="toggleLang(this)">EN</button>
+    <button class="sw-btn sw-lang-btn" id="sw-lang" onclick="toggleLang(this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="sw-lang-label">Русский</span></button>
     <div class="sw-sep"></div>
     <button class="sw-btn" id="sw-theme" onclick="toggleTheme(this)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
   </div>
@@ -711,7 +711,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
 </div>
 
 <footer>
-  <div><div class="foot-logo">ТонТейк</div><p class="foot-desc"><span data-ru>Крипто-комьюнити Telegram · Токен TAKE · TON Network</span><span data-en>Crypto Community Telegram · Token TAKE · TON Network</span><br><svg style="width:12px;height:12px;color:#c9a84c;vertical-align:middle;fill:currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> <span data-ru>Александр Добрый и коллектив — Всем добра!</span><span data-en>Alexander Dobry and team — Best wishes!</span></p></div>
+  <div><div class="foot-logo"><span data-ru>ТонТейк</span><span data-en>TonTake</span></div><p class="foot-desc"><span data-ru>Крипто-комьюнити Telegram · Токен TAKE · TON Network</span><span data-en>Crypto Community Telegram · Token TAKE · TON Network</span><br><svg style="width:12px;height:12px;color:#c9a84c;vertical-align:middle;fill:currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> <span data-ru>Александр Добрый и коллектив — Всем добра!</span><span data-en>Alexander Dobry and team — Best wishes!</span></p></div>
   <div class="foot-links">
     <a href="https://t.me/tontakechat" target="_blank"><span data-ru>Чат</span><span data-en>Chat</span></a>
     <a href="https://t.me/tontake" target="_blank"><span data-ru>Канал</span><span data-en>Channel</span></a>
@@ -719,7 +719,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     <a href="https://t.me/send" target="_blank">CryptoBot</a>
     <a href="https://t.me/tontakegames" target="_blank"><span data-ru>Игры</span><span data-en>Games</span></a>
   </div>
-  <div class="foot-bottom"><span>© 2025 TonTake — TAKE Token</span><span><span data-ru>Не финансовый совет. DYOR.</span><span data-en>Not financial advice. DYOR.</span></span></div>
+  <div class="foot-bottom"><span>© 2022 TonTake — TAKE Token</span><span><span data-ru>Не финансовый совет. DYOR.</span><span data-en>Not financial advice. DYOR.</span></span></div>
 </footer>
 </div>
 
@@ -989,7 +989,7 @@ function toggleLang(btn){
   const isRu = html.getAttribute('data-lang') !== 'en';
   html.setAttribute('data-lang', isRu ? 'en' : 'ru');
   html.setAttribute('lang', isRu ? 'en' : 'ru');
-  btn.textContent = isRu ? 'RU' : 'EN';
+  document.getElementById('sw-lang-label').textContent = isRu ? 'English' : 'Русский';
   btn.classList.toggle('active', isRu);
 }
 </script>
