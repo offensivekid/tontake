@@ -29,13 +29,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 /* Text sits centered, overlapping the blob */
 .hero-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:4;pointer-events:none;width:100%;}
-.hero-tag{font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px;animation:up .9s ease both;}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,9vw,7rem);font-weight:300;letter-spacing:.06em;line-height:.95;color:var(--white);animation:up 1s .08s ease both;mix-blend-mode:normal;}
-h1 em{font-style:italic;color:var(--gold-light);}
-.hero-sub-line{width:1px;height:32px;background:rgba(255,255,255,.15);margin:22px auto;animation:up 1.1s .16s ease both;}
+.hero-tag{font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px;animation:fadeIn .9s 2s ease both;opacity:0;}
+/* h1 defined below */
+
+.hero-sub-line{width:1px;height:32px;background:rgba(255,255,255,.15);margin:22px auto;animation:fadeIn .8s 2.1s ease both;opacity:0;}
 
 /* Bottom info strip — like FroxWard's "DIGITAL MARKETPLACE" section */
-.hero-bottom{position:absolute;bottom:0;left:0;right:0;padding:0 56px 52px;display:flex;align-items:flex-end;justify-content:space-between;z-index:4;animation:up 1.4s .4s ease both;}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;padding:0 56px 52px;display:flex;align-items:flex-end;justify-content:space-between;z-index:4;animation:fadeIn 1s 2.2s ease both;opacity:0;}
 .hero-bottom-left{}
 .hero-label{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .hero-label::before{content:'';display:block;width:22px;height:1px;background:var(--gold);opacity:.6;}
@@ -152,10 +152,87 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--black);}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
+
+/* ── GAMES ── */
+.games-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);}
+@media(max-width:700px){.games-grid{grid-template-columns:1fr;}}
+.gcard{padding:40px 36px;background:rgba(6,6,6,.9);border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden;transition:background .35s;}
+.gcard:nth-child(even){border-right:none;}
+.gcard:nth-last-child(-n+2){border-bottom:none;}
+.gcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s;}
+.gcard:hover{background:rgba(201,168,76,.025);}
+.gcard:hover::after{transform:scaleX(1);}
+.gcard-tag{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.gcard-tag::before{content:'';display:block;width:16px;height:1px;background:var(--gold);opacity:.6;}
+.gcard h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;letter-spacing:.04em;color:var(--white);margin-bottom:14px;}
+.gcard p{font-size:.83rem;line-height:1.85;color:rgba(255,255,255,.38);margin-bottom:16px;}
+.gcard-features{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+.gcard-feat{font-size:.75rem;color:rgba(255,255,255,.32);display:flex;align-items:flex-start;gap:8px;line-height:1.6;}
+.gcard-feat::before{content:'·';color:var(--gold);opacity:.7;flex-shrink:0;margin-top:1px;}
+.gcard-link{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);transition:gap .2s;}
+.gcard:hover .gcard-link{gap:14px;}
+.gcard-link svg{opacity:.7;}
+.gcard-badge{display:inline-block;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--gold-dim);color:rgba(232,201,122,.6);border-radius:100px;margin-bottom:14px;}
+
+/* ══ LOADER ══ */
+#loader{position:fixed;inset:0;z-index:9999;background:#060606;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+#loader.out{animation:loaderOut .9s cubic-bezier(.77,0,.18,1) forwards;}
+@keyframes loaderOut{0%{opacity:1;transform:scale(1);}60%{opacity:1;transform:scale(1.04);}100%{opacity:0;transform:scale(1.08);visibility:hidden;}}
+.ld-wrap{display:flex;flex-direction:column;align-items:center;gap:0;}
+.ld-logo{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,8vw,5rem);font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:transparent;background:linear-gradient(135deg,#c9a84c 0%,#f0e0a0 45%,#c9a84c 100%);-webkit-background-clip:text;background-clip:text;animation:ldPulse 1.8s ease-in-out infinite;}
+@keyframes ldPulse{0%,100%{opacity:.5;letter-spacing:.35em;}50%{opacity:1;letter-spacing:.42em;}}
+.ld-line{width:0;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent);margin-top:18px;animation:ldLine 1.6s .3s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes ldLine{to{width:200px;}}
+
+/* ══ CURSOR ══ */
+#cur-dot{position:fixed;top:0;left:0;width:5px;height:5px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);will-change:transform;}
+#cur-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(201,168,76,.45);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s,opacity .3s;will-change:transform;}
+.cur-hover #cur-ring{width:52px;height:52px;border-color:rgba(201,168,76,.9);}
+@media(hover:none){#cur-dot,#cur-ring{display:none;}}
+
+/* ══ AURORA background canvas ══ */
+#aurora{position:fixed;inset:0;z-index:0;width:100%;height:100%;}
+#c{position:fixed;inset:0;z-index:1;pointer-events:none;}
+
+/* ══ SCROLL REVEAL ══ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.8,.4,1),transform .8s cubic-bezier(.2,.8,.4,1);}
+.rv.on{opacity:1;transform:none;}
+.rv2{opacity:0;transform:translateY(48px);transition:opacity .9s .12s cubic-bezier(.2,.8,.4,1),transform .9s .12s cubic-bezier(.2,.8,.4,1);}
+.rv2.on{opacity:1;transform:none;}
+
+/* ══ NAV glass on scroll ══ */
+nav{transition:background .5s,backdrop-filter .5s,border-bottom .5s;}
+nav.glassy{background:rgba(6,6,6,.7);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.05);}
+
+/* ══ CARD hover glow ══ */
+.gcard,.acell,.wcell{position:relative;}
+.gcard::before,.acell::before,.wcell::before{content:'';position:absolute;inset:0;background:radial-gradient(380px circle at var(--px,50%) var(--py,50%),rgba(201,168,76,.07),transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:0;}
+.gcard:hover::before,.acell:hover::before,.wcell:hover::before{opacity:1;}
+.gcard > *,.acell > *,.wcell > *{position:relative;z-index:1;}
+
+/* ══ HERO text shimmer ══ */
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,9vw,7rem);font-weight:300;letter-spacing:.06em;line-height:.95;color:var(--white);animation:fadeIn 1s 1.9s ease both;opacity:0;}
+h1 em{font-style:italic;color:var(--gold-light);}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes shimmer{0%{background-position:100% 0;}100%{background-position:-100% 0;}}
+
 </style>
 </head>
 <body>
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-wrap">
+    <div class="ld-logo">ТонТейк</div>
+    <div class="ld-line"></div>
+  </div>
+</div>
+<!-- CURSOR -->
+<div id="cur-ring"></div>
+<div id="cur-dot"></div>
+<!-- AURORA -->
+<canvas id="aurora"></canvas>
 <canvas id="c"></canvas>
+
 <div class="wrap">
 <nav>
   <a class="logo" href="#">ТонТейк</a>
@@ -163,6 +240,7 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
     <li><a href="#about">О нас</a></li>
     <li><a href="#wallets">Кошельки</a></li>
     <li><a href="#contests">Конкурсы</a></li>
+    <li><a href="#games">Игры</a></li>
     <li><a href="https://t.me/tontake" target="_blank">Канал</a></li>
   </ul>
   
@@ -200,9 +278,9 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 
 <section id="about" style="position:relative;z-index:2;">
 <div class="section">
-  <p class="section-num">01 — О нас</p>
-  <h2 class="section-title">Добро пожаловать<br>на планету <em>ТонТейк</em></h2>
-  <div class="about-grid">
+  <p class="section-num rv">01 — О нас</p>
+  <h2 class="section-title rv">Добро пожаловать<br>на планету <em>ТонТейк</em></h2>
+  <div class="about-grid rv2">
     <div class="acell">
       <p class="acell-num">01</p>
       <h3>Кто мы?</h3>
@@ -233,9 +311,9 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 
 <section id="wallets" style="position:relative;z-index:2;">
 <div class="section">
-  <p class="section-num">02 — Кошельки</p>
-  <h2 class="section-title">Кошельки<br><em>настоящих криптанов</em></h2>
-  <div class="wallet-grid">
+  <p class="section-num rv">02 — Кошельки</p>
+  <h2 class="section-title rv">Кошельки<br><em>настоящих криптанов</em></h2>
+  <div class="wallet-grid rv2">
     <a class="wcell" href="https://t.me/xrocket" target="_blank">
       <p class="wcell-num">01 — xRocket</p>
       <h3>xRocket</h3>
@@ -264,10 +342,10 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 
 <section id="contests" style="position:relative;z-index:2;">
 <div class="section">
-  <p class="section-num">03 — Конкурсы</p>
-  <h2 class="section-title">Ежедневные <em>розыгрыши</em><br>и конкурсы</h2>
+  <p class="section-num rv">03 — Конкурсы</p>
+  <h2 class="section-title rv">Ежедневные <em>розыгрыши</em><br>и конкурсы</h2>
   <div class="contest-header">Каждый день — ивенты с призами в <strong>TAKE и TON</strong>. Плюс временные конкурсы <strong>Дождь, Аукцион</strong> и fire раздачи. Итоги с <strong>20:00 до 21:00 по Киеву</strong>.</div>
-  <div class="days-grid">
+  <div class="days-grid rv2">
     <div class="dcard"><div class="dcard-head"><span class="dcard-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><div class="dcard-name">Понедельник</div><div class="dcard-sub">День щедрости</div></div></div><ul><li><strong>Щедрый · 1 TAKE</strong>Победитель тот, кто больше всех порадует участников криптовалютами. Голосование.</li></ul><div class="dcard-time">20:00–21:00 по Киеву</div></div>
     <div class="dcard"><div class="dcard-head"><span class="dcard-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span><div><div class="dcard-name">Вторник</div><div class="dcard-sub">День творчества</div></div></div><ul><li><strong>Социальный · 3 TAKE</strong>Лучший мем, GIF или видео на тему ТонТейк. Оценивают лайки админов.</li></ul><div class="dcard-time">20:00–21:00 по Киеву</div></div>
     <div class="dcard"><div class="dcard-head"><span class="dcard-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 01-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></span><div><div class="dcard-name">Среда</div><div class="dcard-sub">День фаера</div></div></div><ul><li><strong>День Фаер · 1 TAKE</strong>Делаешь +fire 0.05 TAKE — попадаешь в рандомный розыгрыш.</li></ul><div class="dcard-time">20:00–21:00 по Киеву</div></div>
@@ -283,9 +361,86 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 </div>
 </section>
 
+
+<div class="divider"></div>
+
+<section id="games" style="position:relative;z-index:2;">
+<div class="section">
+  <p class="section-num rv">04 — Игры</p>
+  <h2 class="section-title rv">Зарабатывай TAKE<br><em>играя в игры</em></h2>
+  <div class="games-grid rv2">
+
+    <!-- Card 1: TonTakeBot -->
+    <a class="gcard" href="https://t.me/TonTakeBot?start=invite_024bgdU37uBWZhLLm8GF" target="_blank">
+      <div class="gcard-tag">Бот · Telegram</div>
+      <span class="gcard-badge">Майнинг + Стейкинг</span>
+      <h3>TonTake Bot</h3>
+      <p>Фундаментальный бот для майнинга и стейкинга TAKE. Начни получать токены без вложений — сразу переводи в стейкинг под 18–36% годовых.</p>
+      <div class="gcard-features">
+        <div class="gcard-feat">Майнинг TAKE без вложений</div>
+        <div class="gcard-feat">Стейкинг 18,3% → до 36,6% годовых</div>
+        <div class="gcard-feat">Задачи для продвижения твоего канала</div>
+        <div class="gcard-feat">Вывод чеками в xRocket — 0% комиссия</div>
+        <div class="gcard-feat">Двухуровневая реферальная система</div>
+      </div>
+      <span class="gcard-link">Открыть бота <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
+    </a>
+
+    <!-- Card 2: Зерносклад -->
+    <a class="gcard" href="https://zernosklad.com/" target="_blank">
+      <div class="gcard-tag">Браузер · ПК</div>
+      <span class="gcard-badge">Кликер · Призовой фонд</span>
+      <h3>Зерносклад</h3>
+      <p>Криптоигра-кликер с реальным призом в токенах TAKE. Пройди 7 уровней и получи 50% призового фонда на кошелёк xRocket — автоматически.</p>
+      <div class="gcard-features">
+        <div class="gcard-feat">Бесплатное прохождение или с донатом</div>
+        <div class="gcard-feat">Пассивный доход через апгрейды (DPS)</div>
+        <div class="gcard-feat">Джин каждые 6 часов + бесплатные сундуки</div>
+        <div class="gcard-feat">Бонус +10 TAKE за быстрое прохождение уровня</div>
+        <div class="gcard-feat">Система победителей — полностью автоматизирована</div>
+      </div>
+      <span class="gcard-link">Играть <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
+    </a>
+
+    <!-- Card 3: TonTake RoBot -->
+    <a class="gcard" href="https://t.me/TonTakeRoBot" target="_blank">
+      <div class="gcard-tag">Бот · Telegram</div>
+      <span class="gcard-badge">PvP · Турниры в TON</span>
+      <h3>TonTake RoBot</h3>
+      <p>Сражайся с друзьями и случайными игроками в телеграм-боте. Апгрейдируй робота за TAKE — побеждай и выводи TON.</p>
+      <div class="gcard-features">
+        <div class="gcard-feat">5 видов роботов — выпадает бесплатно при старте</div>
+        <div class="gcard-feat">Многопользовательский и одиночный режимы</div>
+        <div class="gcard-feat">Турниры: 90% банка уходит победителям</div>
+        <div class="gcard-feat">4 вида апгрейдов: броня, урон, здоровье, ремкомплект</div>
+        <div class="gcard-feat">+0.003 TAKE за каждого реферала</div>
+      </div>
+      <span class="gcard-link">Получить робота <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
+    </a>
+
+    <!-- Card 4: TONvsTAKE -->
+    <a class="gcard" href="https://tontake.com/" target="_blank">
+      <div class="gcard-tag">Браузер · Стратегия</div>
+      <span class="gcard-badge">P2P · Мультиплеер</span>
+      <h3>TON vs TAKE</h3>
+      <p>Логическая крипто-стратегия: захватывай территории планеты Земля, распространяй влияние криптовалют и побеждай реальных игроков.</p>
+      <div class="gcard-features">
+        <div class="gcard-feat">Захват деревень и городов — пассивный доход CRYPTO</div>
+        <div class="gcard-feat">1 TAKE = +1% к генерации ресурсов навсегда</div>
+        <div class="gcard-feat">Мультиплеер от 0.01 TON — приз 0.018 TON</div>
+        <div class="gcard-feat">Ангелы, чёрные дыры и окружение территорий</div>
+        <div class="gcard-feat">Авто-расчёты через xRocket</div>
+      </div>
+      <span class="gcard-link">Играть <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
+    </a>
+
+  </div>
+</div>
+</section>
+
 <div class="divider"></div>
 <div class="main-cta">
-  <h2 class="main-cta-title">Готов начать<br>свой путь в <em>крипто?</em></h2>
+  <h2 class="main-cta-title rv">Начни зарабатывать<br><em>прямо сейчас</em></h2>
   <a class="btn-primary" href="https://t.me/tontakechat" target="_blank">Войти в чат</a>&nbsp;&nbsp;<a class="btn-primary btn-outline-gold" href="https://t.me/tontake" target="_blank">Подписаться на канал</a>
 </div>
 
@@ -311,263 +466,295 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
   el.innerHTML=h+h;
 })();
 
-/* ══════════════════════════════════════════════════════════
-   NEURAL CHAINS — no cube, only floating nodes connected
-   by glowing chains with multiple orbs running along them.
-   • ~40 nodes randomly placed in a sphere
-   • Each node connected to 2-3 nearest neighbours
-   • 6 orbs travelling along random edge paths
-   • Soft parallax with mouse
-══════════════════════════════════════════════════════════ */
+/* ══ AURORA — CSS-canvas gradient mesh ══ */
 (function(){
-  const canvas = document.getElementById('c');
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, powerPreference:'high-performance'});
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
-  renderer.setSize(innerWidth, innerHeight);
 
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x060606);
+  /* LOADER */
+  const loader = document.getElementById('loader');
+  setTimeout(()=>{
+    if(loader) loader.classList.add('out');
+    setTimeout(()=>{ if(loader) loader.style.display='none'; }, 900);
+  }, 1800);
 
-  const camera = new THREE.PerspectiveCamera(42, innerWidth/innerHeight, 0.1, 300);
-  camera.position.set(0, 0, 7);
+  /* CURSOR */
+  const dot  = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  let cx=innerWidth/2, cy=innerHeight/2, rx=cx, ry=cy;
 
-  window.addEventListener('resize', ()=>{
-    renderer.setSize(innerWidth, innerHeight);
-    camera.aspect = innerWidth/innerHeight;
-    camera.updateProjectionMatrix();
+  if(dot && ring){
+    document.addEventListener('mousemove', e=>{
+      cx=e.clientX; cy=e.clientY;
+      dot.style.left=cx+'px'; dot.style.top=cy+'px';
+    });
+    document.addEventListener('mouseover', e=>{
+      if(e.target.closest('a,button')) document.body.classList.add('cur-hover');
+      else document.body.classList.remove('cur-hover');
+    });
+    (function rl(){
+      requestAnimationFrame(rl);
+      rx+=(cx-rx)*.1; ry+=(cy-ry)*.1;
+      ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    })();
+  }
+
+  /* CARD SHINE */
+  document.querySelectorAll('.gcard,.acell,.wcell').forEach(el=>{
+    el.addEventListener('mousemove', e=>{
+      const r=el.getBoundingClientRect();
+      el.style.setProperty('--px',(e.clientX-r.left)+'px');
+      el.style.setProperty('--py',(e.clientY-r.top)+'px');
+    });
   });
 
-  /* ── STARS ── */
-  {
-    const N=900, p=new Float32Array(N*3), s=new Float32Array(N);
-    for(let i=0;i<N;i++){
-      const r=40+Math.random()*80, th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
-      p[i*3]=r*Math.sin(ph)*Math.cos(th); p[i*3+1]=r*Math.sin(ph)*Math.sin(th); p[i*3+2]=r*Math.cos(ph);
-      s[i]=Math.random()<0.03?1.5:0.12+Math.random()*0.35;
+  /* NAV GLASS */
+  const nav=document.querySelector('nav');
+  const onScroll=()=>nav&&nav.classList.toggle('glassy',scrollY>30);
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* SCROLL REVEAL */
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('on'); obs.unobserve(e.target);} });
+  },{threshold:.08});
+  document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
+
+  /* AURORA CANVAS — animated gradient mesh, no three.js needed */
+  const cv = document.getElementById('aurora');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+
+  let W, H;
+  function resize(){ W=cv.width=innerWidth; H=cv.height=innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Orbs definition — each is a floating gradient blob
+  const orbs = [
+    { x:.5,  y:.45, r:.55, h:38,  s:.95, l:.08, speed:.00031, phase:0      },
+    { x:.28, y:.55, r:.50, h:45,  s:.90, l:.06, speed:.00024, phase:1.1    },
+    { x:.72, y:.40, r:.48, h:32,  s:.88, l:.055,speed:.00028, phase:2.3    },
+    { x:.50, y:.75, r:.40, h:42,  s:.85, l:.04, speed:.00019, phase:3.7    },
+    { x:.15, y:.30, r:.35, h:35,  s:.80, l:.035,speed:.00033, phase:5.1    },
+    { x:.85, y:.65, r:.38, h:40,  s:.82, l:.04, speed:.00022, phase:4.2    },
+  ];
+
+  let mx=.5, my=.5, tmx=.5, tmy=.5;
+  document.addEventListener('mousemove', e=>{
+    tmx=e.clientX/innerWidth; tmy=e.clientY/innerHeight;
+  });
+
+  let t=0;
+  (function draw(){
+    requestAnimationFrame(draw);
+    t++;
+    mx+=(tmx-mx)*.025; my+=(tmy-my)*.025;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#060606';
+    ctx.fillRect(0,0,W,H);
+
+    for(const o of orbs){
+      // Gentle float
+      const ox = (o.x + Math.sin(t*o.speed + o.phase)*0.08 + (mx-.5)*0.04) * W;
+      const oy = (o.y + Math.cos(t*o.speed*1.3 + o.phase)*0.06 + (my-.5)*0.03) * H;
+      const radius = o.r * Math.min(W,H);
+
+      const grad = ctx.createRadialGradient(ox,oy,0, ox,oy,radius);
+      // Gold hue in HSL → convert to rgba for canvas
+      // hsl(38, 90%, 8%) core → transparent edge
+      const alpha = o.l;
+      grad.addColorStop(0, `rgba(201,152,50,${alpha})`);
+      grad.addColorStop(.35,`rgba(180,120,30,${alpha*.6})`);
+      grad.addColorStop(.7, `rgba(120,80,15,${alpha*.2})`);
+      grad.addColorStop(1,  `rgba(0,0,0,0)`);
+
+      ctx.save();
+      ctx.globalCompositeOperation='screen';
+      ctx.fillStyle=grad;
+      ctx.beginPath();
+      ctx.ellipse(ox, oy, radius*1.4, radius*.9, t*o.speed*.5, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
     }
-    const sg=new THREE.BufferGeometry();
-    sg.setAttribute('position',new THREE.BufferAttribute(p,3));
-    sg.setAttribute('aSize',new THREE.BufferAttribute(s,1));
-    const sm=new THREE.ShaderMaterial({
-      uniforms:{uTime:{value:0}},
-      vertexShader:`attribute float aSize;uniform float uTime;void main(){float tw=0.7+0.3*sin(uTime*0.4+position.x*0.1);vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=aSize*tw*(300./-mv.z);gl_Position=projectionMatrix*mv;}`,
-      fragmentShader:`void main(){vec2 uv=gl_PointCoord-.5;if(length(uv)>.5)discard;gl_FragColor=vec4(.78,.82,.96,(1.-smoothstep(0.,.5,length(uv)))*.38);}`,
-      transparent:true,depthWrite:false,blending:THREE.AdditiveBlending
+
+    // Subtle vignette
+    const vig=ctx.createRadialGradient(W/2,H/2,H*.2, W/2,H/2,H*.85);
+    vig.addColorStop(0,'rgba(0,0,0,0)');
+    vig.addColorStop(1,'rgba(0,0,0,.65)');
+    ctx.fillStyle=vig;
+    ctx.fillRect(0,0,W,H);
+
+    // Gold horizon line at bottom of hero
+    const heroH=innerHeight;
+    const glowY=heroH*.92;
+    const glow=ctx.createLinearGradient(0,glowY-30,0,glowY+30);
+    glow.addColorStop(0,'rgba(0,0,0,0)');
+    glow.addColorStop(.5,`rgba(201,168,76,.055)`);
+    glow.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=glow;
+    ctx.fillRect(0,glowY-30,W,60);
+  })();
+
+
+  /* ══ THREE.JS — NEURAL CHAINS ══ */
+  (function(){
+    const canvas = document.getElementById('c');
+    if(!canvas) return;
+    const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.setClearColor(0x000000, 0); // transparent bg — aurora shows through
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, innerWidth/innerHeight, 0.1, 300);
+    camera.position.set(0, 0, 7);
+
+    window.addEventListener('resize', ()=>{
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
     });
-    scene.add(new THREE.Points(sg,sm));
-    scene._starMat=sm;
-  }
 
-  /* ── NODES: random positions in a spread cloud ── */
-  const NODE_COUNT = 42;
-  const nodes = [];
-  // Use fibonacci sphere for even distribution
-  const PHI = Math.PI*(3-Math.sqrt(5));
-  for(let i=0;i<NODE_COUNT;i++){
-    const y = 1 - (i/(NODE_COUNT-1))*2;
-    const r = Math.sqrt(Math.max(0,1-y*y));
-    const th = PHI*i;
-    // vary radius so it feels organic, not perfectly spherical
-    const radius = 1.8 + Math.sin(i*1.3)*0.6 + Math.cos(i*0.7)*0.5;
-    nodes.push(new THREE.Vector3(
-      r*Math.cos(th)*radius,
-      y*radius,
-      r*Math.sin(th)*radius
-    ));
-  }
-
-  /* ── EDGES: connect each node to 2-3 nearest ── */
-  const edges = []; // [{a, b}] indices
-  const edgeSet = new Set();
-  for(let i=0;i<NODE_COUNT;i++){
-    // find 3 nearest
-    const dists = [];
-    for(let j=0;j<NODE_COUNT;j++){
-      if(i===j) continue;
-      dists.push({j, d: nodes[i].distanceTo(nodes[j])});
+    /* NODES */
+    const NODE_COUNT = 42;
+    const nodes = [];
+    const PHI = Math.PI*(3-Math.sqrt(5));
+    for(let i=0;i<NODE_COUNT;i++){
+      const y = 1-(i/(NODE_COUNT-1))*2;
+      const r = Math.sqrt(Math.max(0,1-y*y));
+      const th = PHI*i;
+      const radius = 1.8 + Math.sin(i*1.3)*0.6 + Math.cos(i*0.7)*0.5;
+      nodes.push(new THREE.Vector3(r*Math.cos(th)*radius, y*radius, r*Math.sin(th)*radius));
     }
-    dists.sort((a,b)=>a.d-b.d);
-    const K = 2 + (i%3===0 ? 1 : 0); // some nodes get 3 connections
-    for(let k=0;k<K;k++){
-      const j = dists[k].j;
-      const key = Math.min(i,j)+','+Math.max(i,j);
-      if(!edgeSet.has(key)){
-        edgeSet.add(key);
-        edges.push({a:i, b:j});
+
+    /* EDGES */
+    const edges = [];
+    const edgeSet = new Set();
+    for(let i=0;i<NODE_COUNT;i++){
+      const dists = [];
+      for(let j=0;j<NODE_COUNT;j++){
+        if(i===j) continue;
+        dists.push({j, d: nodes[i].distanceTo(nodes[j])});
+      }
+      dists.sort((a,b)=>a.d-b.d);
+      const K = 2 + (i%3===0?1:0);
+      for(let k=0;k<K;k++){
+        const j=dists[k].j;
+        const key=Math.min(i,j)+','+Math.max(i,j);
+        if(!edgeSet.has(key)){ edgeSet.add(key); edges.push({a:i,b:j}); }
       }
     }
-  }
 
-  /* ── LINE GEOMETRY for all edges ── */
-  const lineBuf = new Float32Array(edges.length*2*3);
-  for(let e=0;e<edges.length;e++){
-    const na=nodes[edges[e].a], nb=nodes[edges[e].b];
-    lineBuf[e*6]  =na.x; lineBuf[e*6+1]=na.y; lineBuf[e*6+2]=na.z;
-    lineBuf[e*6+3]=nb.x; lineBuf[e*6+4]=nb.y; lineBuf[e*6+5]=nb.z;
-  }
-  const lineGeo = new THREE.BufferGeometry();
-  lineGeo.setAttribute('position', new THREE.BufferAttribute(lineBuf,3));
-  const lineMat = new THREE.LineBasicMaterial({color:0xffffff, transparent:true, opacity:0.10});
-  scene.add(new THREE.LineSegments(lineGeo, lineMat));
-
-  /* ── NODE DOTS ── */
-  const nodeBuf = new Float32Array(nodes.flatMap(n=>n.toArray()));
-  const nodeGeo = new THREE.BufferGeometry();
-  nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodeBuf,3));
-  scene.add(new THREE.Points(nodeGeo, new THREE.PointsMaterial({
-    color:0xffffff, size:0.045, transparent:true, opacity:0.55, sizeAttenuation:true
-  })));
-
-  /* ── ORB SPRITES factory ── */
-  const mkSprite = (size, c0, c1) => {
-    const cv=document.createElement('canvas'); cv.width=cv.height=size;
-    const x=size/2, ctx=cv.getContext('2d'), g=ctx.createRadialGradient(x,x,0,x,x,x);
-    g.addColorStop(0,c0); g.addColorStop(1,c1);
-    ctx.fillStyle=g; ctx.fillRect(0,0,size,size);
-    return new THREE.CanvasTexture(cv);
-  };
-
-  /* ── 6 ORBS travelling different paths ── */
-  const ORB_COLORS = [
-    ['rgba(255,215,100,1)','rgba(255,130,20,0)'],   // gold
-    ['rgba(200,168,255,1)','rgba(120,60,255,0)'],   // violet
-    ['rgba(100,220,255,1)','rgba(20,120,220,0)'],   // cyan
-    ['rgba(255,215,100,1)','rgba(255,130,20,0)'],   // gold
-    ['rgba(200,168,255,1)','rgba(120,60,255,0)'],   // violet
-    ['rgba(100,220,255,1)','rgba(20,120,220,0)'],   // cyan
-  ];
-  const TRAIL_LEN = 10;
-
-  const orbs = ORB_COLORS.map(([c0,c1], idx) => {
-    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
-      map: mkSprite(64, c0, c1),
-      transparent:true, blending:THREE.AdditiveBlending, depthWrite:false
-    }));
-    sprite.scale.set(0.22, 0.22, 1);
-    scene.add(sprite);
-
-    // trail
-    const trail = [];
-    for(let t=0;t<TRAIL_LEN;t++){
-      const f = 1-t/TRAIL_LEN;
-      const sp = new THREE.Sprite(new THREE.SpriteMaterial({
-        map: mkSprite(32, c0, c1.replace('0)', '0)')),
-        transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity: f*0.35
-      }));
-      sp.scale.set(0.14*f, 0.14*f, 1);
-      scene.add(sp);
-      trail.push(sp);
-    }
-
-    // start on random edge, random progress, random direction
-    const startEdge = Math.floor(Math.random()*edges.length);
-    return {
-      sprite, trail,
-      trailPos: Array.from({length:TRAIL_LEN}, ()=>new THREE.Vector3()),
-      edgeIdx: startEdge,
-      t: Math.random(),        // position along current edge 0..1
-      dir: Math.random()<0.5?1:-1,  // direction
-      speed: 0.28 + Math.random()*0.22,  // edges per second
-    };
-  });
-
-  /* helper: get next edge connected to node, not coming from prevEdge */
-  function nextEdge(edgeIdx, fromNode) {
-    const toNode = edges[edgeIdx].a===fromNode ? edges[edgeIdx].b : edges[edgeIdx].a;
-    // find all edges connected to toNode
-    const candidates = [];
+    /* LINE GEO */
+    const lineBuf = new Float32Array(edges.length*2*3);
     for(let e=0;e<edges.length;e++){
-      if(e===edgeIdx) continue;
-      if(edges[e].a===toNode || edges[e].b===toNode) candidates.push(e);
-    }
-    if(candidates.length===0) return {edgeIdx, fromNode:toNode}; // dead end, reverse
-    const pick = candidates[Math.floor(Math.random()*candidates.length)];
-    return {edgeIdx:pick, fromNode:toNode};
-  }
-
-  /* mouse */
-  let tmx=0,tmy=0,mx=0,my=0;
-  document.addEventListener('mousemove',e=>{
-    tmx=(e.clientX/innerWidth-.5)*2;
-    tmy=(e.clientY/innerHeight-.5)*2;
-  });
-
-  // group for slow auto-rotation of all nodes
-  const group = new THREE.Group();
-  // move all scene objects except stars into group
-  // Actually easier: just rotate camera target or apply euler to node positions on render
-  // We'll apply a slow rotation matrix to node positions each frame for parallax feel
-
-  const clock = new THREE.Clock();
-  let autoRY = 0, autoRX = 0;
-
-  (function loop(){
-    requestAnimationFrame(loop);
-    const t = clock.getElapsedTime();
-    mx+=(tmx-mx)*0.04; my+=(tmy-my)*0.04;
-
-    autoRY = t*0.08 + mx*0.18;
-    autoRX = t*0.04 - my*0.10;
-
-    // Build rotation matrix to get world positions of nodes
-    const euler = new THREE.Euler(autoRX, autoRY, 0);
-    const quat  = new THREE.Quaternion().setFromEuler(euler);
-
-    // Update line geometry (rotate node positions)
-    const rotNodes = nodes.map(n=>n.clone().applyQuaternion(quat));
-    for(let e=0;e<edges.length;e++){
-      const na=rotNodes[edges[e].a], nb=rotNodes[edges[e].b];
-      lineBuf[e*6]  =na.x; lineBuf[e*6+1]=na.y; lineBuf[e*6+2]=na.z;
+      const na=nodes[edges[e].a], nb=nodes[edges[e].b];
+      lineBuf[e*6]=na.x; lineBuf[e*6+1]=na.y; lineBuf[e*6+2]=na.z;
       lineBuf[e*6+3]=nb.x; lineBuf[e*6+4]=nb.y; lineBuf[e*6+5]=nb.z;
     }
-    lineGeo.attributes.position.needsUpdate=true;
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(lineBuf,3));
+    scene.add(new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:0.10})));
 
-    // Update node dots
-    for(let i=0;i<NODE_COUNT;i++){
-      nodeBuf[i*3]=rotNodes[i].x; nodeBuf[i*3+1]=rotNodes[i].y; nodeBuf[i*3+2]=rotNodes[i].z;
+    /* NODE DOTS */
+    const nodeBuf = new Float32Array(nodes.flatMap(n=>n.toArray()));
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodeBuf,3));
+    scene.add(new THREE.Points(nodeGeo, new THREE.PointsMaterial({color:0xffffff,size:0.045,transparent:true,opacity:0.5,sizeAttenuation:true})));
+
+    /* ORB SPRITES */
+    const mkSprite = (size,c0,c1)=>{
+      const cv=document.createElement('canvas'); cv.width=cv.height=size;
+      const x=size/2, ctx=cv.getContext('2d'), g=ctx.createRadialGradient(x,x,0,x,x,x);
+      g.addColorStop(0,c0); g.addColorStop(1,c1);
+      ctx.fillStyle=g; ctx.fillRect(0,0,size,size);
+      return new THREE.CanvasTexture(cv);
+    };
+
+    const ORB_COLORS=[
+      ['rgba(255,215,100,1)','rgba(255,130,20,0)'],
+      ['rgba(200,168,255,1)','rgba(120,60,255,0)'],
+      ['rgba(100,220,255,1)','rgba(20,120,220,0)'],
+      ['rgba(255,215,100,1)','rgba(255,130,20,0)'],
+      ['rgba(200,168,255,1)','rgba(120,60,255,0)'],
+      ['rgba(100,220,255,1)','rgba(20,120,220,0)'],
+    ];
+    const TRAIL_LEN=10;
+
+    const orbs3d = ORB_COLORS.map(([c0,c1])=>{
+      const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:mkSprite(64,c0,c1),transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));
+      sprite.scale.set(0.22,0.22,1); scene.add(sprite);
+      const trail=[];
+      for(let t=0;t<TRAIL_LEN;t++){
+        const f=1-t/TRAIL_LEN;
+        const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:mkSprite(32,c0,c1),transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:f*0.35}));
+        sp.scale.set(0.14*f,0.14*f,1); scene.add(sp); trail.push(sp);
+      }
+      return {sprite,trail,trailPos:Array.from({length:TRAIL_LEN},()=>new THREE.Vector3()),
+        edgeIdx:Math.floor(Math.random()*edges.length),t:Math.random(),dir:Math.random()<.5?1:-1,speed:.28+Math.random()*.22};
+    });
+
+    function nextEdge(edgeIdx, fromNode){
+      const toNode=edges[edgeIdx].a===fromNode?edges[edgeIdx].b:edges[edgeIdx].a;
+      const candidates=[];
+      for(let e=0;e<edges.length;e++){
+        if(e===edgeIdx) continue;
+        if(edges[e].a===toNode||edges[e].b===toNode) candidates.push(e);
+      }
+      if(!candidates.length) return {edgeIdx,fromNode:toNode};
+      const pick=candidates[Math.floor(Math.random()*candidates.length)];
+      return {edgeIdx:pick,fromNode:toNode};
     }
-    nodeGeo.attributes.position.needsUpdate=true;
 
-    // Advance orbs
-    for(const orb of orbs){
-      orb.t += orb.dir * orb.speed * 0.016;
+    let tmx3=0,tmy3=0,mx3=0,my3=0;
+    document.addEventListener('mousemove',e=>{tmx3=(e.clientX/innerWidth-.5)*2; tmy3=(e.clientY/innerHeight-.5)*2;});
 
-      // crossed end of edge?
-      if(orb.t >= 1){
-        orb.t -= 1;
-        const fromNode = edges[orb.edgeIdx].b; // arrived at b
-        const res = nextEdge(orb.edgeIdx, fromNode);
-        orb.edgeIdx = res.edgeIdx;
-        // ensure we travel away from fromNode
-        if(edges[orb.edgeIdx].a === res.fromNode){ orb.dir=1; } else { orb.dir=-1; }
-      } else if(orb.t < 0){
-        orb.t += 1;
-        const fromNode = edges[orb.edgeIdx].a;
-        const res = nextEdge(orb.edgeIdx, fromNode);
-        orb.edgeIdx = res.edgeIdx;
-        if(edges[orb.edgeIdx].b === res.fromNode){ orb.dir=-1; } else { orb.dir=1; }
+    const clock3 = new THREE.Clock();
+    const nodeBufArr = new Float32Array(NODE_COUNT*3);
+
+    (function loop(){
+      requestAnimationFrame(loop);
+      const t=clock3.getElapsedTime();
+      mx3+=(tmx3-mx3)*.04; my3+=(tmy3-my3)*.04;
+
+      const autoRY=t*.08+mx3*.18, autoRX=t*.04-my3*.10;
+      const euler=new THREE.Euler(autoRX,autoRY,0);
+      const quat=new THREE.Quaternion().setFromEuler(euler);
+      const rotNodes=nodes.map(n=>n.clone().applyQuaternion(quat));
+
+      for(let e=0;e<edges.length;e++){
+        const na=rotNodes[edges[e].a], nb=rotNodes[edges[e].b];
+        lineBuf[e*6]=na.x; lineBuf[e*6+1]=na.y; lineBuf[e*6+2]=na.z;
+        lineBuf[e*6+3]=nb.x; lineBuf[e*6+4]=nb.y; lineBuf[e*6+5]=nb.z;
+      }
+      lineGeo.attributes.position.needsUpdate=true;
+
+      for(let i=0;i<NODE_COUNT;i++){
+        nodeBufArr[i*3]=rotNodes[i].x; nodeBufArr[i*3+1]=rotNodes[i].y; nodeBufArr[i*3+2]=rotNodes[i].z;
+      }
+      nodeGeo.attributes.position.array.set(nodeBufArr);
+      nodeGeo.attributes.position.needsUpdate=true;
+
+      for(const orb of orbs3d){
+        orb.t+=orb.dir*orb.speed*.016;
+        if(orb.t>=1){orb.t-=1; const fn=edges[orb.edgeIdx].b; const r=nextEdge(orb.edgeIdx,fn); orb.edgeIdx=r.edgeIdx; orb.dir=edges[orb.edgeIdx].a===r.fromNode?1:-1;}
+        else if(orb.t<0){orb.t+=1; const fn=edges[orb.edgeIdx].a; const r=nextEdge(orb.edgeIdx,fn); orb.edgeIdx=r.edgeIdx; orb.dir=edges[orb.edgeIdx].b===r.fromNode?-1:1;}
+        const tc=Math.max(0,Math.min(1,orb.t));
+        const na=rotNodes[edges[orb.edgeIdx].a], nb=rotNodes[edges[orb.edgeIdx].b];
+        const pos=na.clone().lerp(nb,orb.dir>0?tc:1-tc);
+        orb.sprite.position.copy(pos);
+        for(let i=TRAIL_LEN-1;i>0;i--) orb.trailPos[i].copy(orb.trailPos[i-1]);
+        orb.trailPos[0].copy(pos);
+        for(let i=0;i<TRAIL_LEN;i++) orb.trail[i].position.copy(orb.trailPos[i]);
       }
 
-      const tc = Math.max(0,Math.min(1,orb.t));
-      const na = rotNodes[edges[orb.edgeIdx].a];
-      const nb = rotNodes[edges[orb.edgeIdx].b];
-      const pos = na.clone().lerp(nb, orb.dir>0?tc:1-tc);
-      orb.sprite.position.copy(pos);
-
-      // trail
-      for(let i=TRAIL_LEN-1;i>0;i--) orb.trailPos[i].copy(orb.trailPos[i-1]);
-      orb.trailPos[0].copy(pos);
-      for(let i=0;i<TRAIL_LEN;i++) orb.trail[i].position.copy(orb.trailPos[i]);
-    }
-
-    if(scene._starMat) scene._starMat.uniforms.uTime.value=t;
-
-    camera.position.x += (mx*0.05 - camera.position.x)*0.03;
-    camera.position.y += (-my*0.03 - camera.position.y)*0.03;
-    camera.lookAt(0,0,0);
-
-    renderer.render(scene,camera);
+      camera.position.x+=(mx3*.05-camera.position.x)*.03;
+      camera.position.y+=(-my3*.03-camera.position.y)*.03;
+      camera.lookAt(0,0,0);
+      renderer.render(scene,camera);
+    })();
   })();
+
+
 })();
 </script>
 </body>
