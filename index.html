@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ТонТейк — TAKE</title>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syncopate:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -13,7 +13,7 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 #c{position:fixed;inset:0;z-index:0;}
 .wrap{position:relative;z-index:2;}
 
-/* ── NAV ── */
+
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px;}
 .logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--white);}.logo-img{display:flex;align-items:center;}
 .nav-mid{display:flex;gap:36px;list-style:none;}
@@ -23,17 +23,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .nav-btn:hover{opacity:.85;}.nav-btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.22);margin-right:8px;}.nav-btn-outline:hover{background:rgba(255,255,255,.06);opacity:1;}.btn-outline-gold{background:transparent;color:var(--gold-light);border:1px solid var(--gold-dim);}.btn-outline-gold:hover{background:rgba(201,168,76,.08);opacity:1;}
 @media(max-width:640px){.nav-mid{display:none;}nav{padding:0 24px;}}
 
-/* ── HERO ── */
+
 #hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
 
-/* Text sits centered, overlapping the blob */
+
 .hero-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:4;pointer-events:none;width:100%;}
 .hero-tag{font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px;animation:fadeIn .9s 2s ease both;opacity:0;}
-/* h1 defined below */
+
 
 .hero-sub-line{width:1px;height:32px;background:rgba(255,255,255,.15);margin:22px auto;animation:fadeIn .8s 2.1s ease both;opacity:0;}
 
-/* Bottom info strip — like FroxWard's "DIGITAL MARKETPLACE" section */
+
 .hero-bottom{position:absolute;bottom:0;left:0;right:0;padding:0 56px 52px;display:flex;align-items:flex-end;justify-content:space-between;z-index:4;animation:fadeIn 1s 2.2s ease both;opacity:0;}
 .hero-bottom-left{}
 .hero-label{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .btn-text svg{transition:transform .25s;}
 .btn-text:hover svg{transform:translateX(3px);}
 
-/* dot marquee — like the dots row in reference */
+
 .hero-marquee{position:absolute;bottom:0;left:0;right:0;height:2px;overflow:hidden;z-index:3;}
 .hero-marquee-inner{display:flex;gap:4px;animation:marquee 18s linear infinite;}
 .mdot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.18);flex-shrink:0;}
@@ -55,12 +55,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 @keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
-/* ── SCROLL CUE ── */
+
 .scroll-cue{position:absolute;bottom:52px;right:52px;z-index:4;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.18);}
 .scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,rgba(255,255,255,.18),transparent);animation:drip 2.2s ease-in-out infinite;}
 @keyframes drip{0%,100%{opacity:.4;transform:scaleY(1);}50%{opacity:.9;transform:scaleY(1.25);}}
 
-/* ── SECTIONS ── */
+
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);position:relative;z-index:2;}
 .section{max-width:1080px;margin:0 auto;padding:120px 40px;position:relative;z-index:2;}
 @media(max-width:640px){.section{padding:80px 24px;}}
@@ -68,7 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:56px;color:var(--white);}
 .section-title em{font-style:italic;color:var(--gold-light);}
 
-/* about */
+
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);}
 @media(max-width:700px){.about-grid{grid-template-columns:1fr;}}
 .acell{padding:40px 36px;background:rgba(6,6,6,.9);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .35s;}
@@ -86,7 +86,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .quote-bar{margin-top:22px;padding:18px 22px;border-left:1px solid var(--gold-dim);background:rgba(201,168,76,.025);}
 .quote-bar p{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:rgba(255,255,255,.45);line-height:1.7;}
 
-/* wallets */
+
 .wallet-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);}
 @media(max-width:600px){.wallet-grid{grid-template-columns:1fr;}}
 .wcell{padding:48px 40px;background:rgba(6,6,6,.9);text-decoration:none;color:inherit;display:block;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .35s;}
@@ -106,7 +106,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .guide-bar p{font-size:.8rem;color:rgba(255,255,255,.35);}
 .guide-bar span{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);}
 
-/* contests */
+
 .contest-header{padding:26px 30px;margin-bottom:1px;background:rgba(201,168,76,.025);border:1px solid var(--border);font-size:.82rem;line-height:1.8;color:rgba(255,255,255,.38);}
 .contest-header strong{color:var(--gold-light);}
 .days-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;border:1px solid var(--border);}
@@ -132,12 +132,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .sc p{font-size:.8rem;line-height:1.75;color:rgba(255,255,255,.38);}
 .sc strong{color:rgba(232,201,122,.75);font-weight:400;}
 
-/* CTA */
+
 .main-cta{text-align:center;padding:80px 24px;position:relative;z-index:2;}
 .main-cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;color:var(--white);margin-bottom:28px;letter-spacing:.04em;}
 .main-cta-title em{font-style:italic;color:var(--gold-light);}
 
-/* footer */
+
 footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:start;background:rgba(6,6,6,.7);backdrop-filter:blur(20px);}
 @media(max-width:640px){footer{grid-template-columns:1fr;padding:44px 24px;}}
 .foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;letter-spacing:.15em;color:var(--white);margin-bottom:10px;}
@@ -152,7 +152,7 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 ::-webkit-scrollbar-track{background:var(--black);}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
 
-/* ── GAMES ── */
+
 .games-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);}
 @media(max-width:700px){.games-grid{grid-template-columns:1fr;}}
 .gcard{padding:40px 36px;background:rgba(6,6,6,.9);border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden;transition:background .35s;}
@@ -173,7 +173,7 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 .gcard-link svg{opacity:.7;}
 .gcard-badge{display:inline-block;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--gold-dim);color:rgba(232,201,122,.6);border-radius:100px;margin-bottom:14px;}
 
-/* ══ LOADER ══ */
+
 #loader{position:fixed;inset:0;z-index:9999;background:#060606;display:flex;align-items:center;justify-content:center;pointer-events:none;}
 #loader.out{animation:loaderOut .9s cubic-bezier(.77,0,.18,1) forwards;}
 @keyframes loaderOut{0%{opacity:1;transform:scale(1);}60%{opacity:1;transform:scale(1.04);}100%{opacity:0;transform:scale(1.08);visibility:hidden;}}
@@ -183,18 +183,22 @@ footer{border-top:1px solid var(--border);padding:56px 48px 44px;position:relati
 .ld-line{width:0;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent);margin-top:18px;animation:ldLine 1.6s .3s cubic-bezier(.4,0,.2,1) forwards;}
 @keyframes ldLine{to{width:200px;}}
 
+
 #cur-dot{position:fixed;top:0;left:0;width:5px;height:5px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);will-change:transform;}
 #cur-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(201,168,76,.45);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s,opacity .3s;will-change:transform;}
 .cur-hover #cur-ring{width:52px;height:52px;border-color:rgba(201,168,76,.9);}
 @media(hover:none){#cur-dot,#cur-ring{display:none;}}
 
+
 #aurora{position:fixed;inset:0;z-index:0;width:100%;height:100%;}
 #c{position:fixed;inset:0;z-index:1;pointer-events:none;}
+
 
 .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.8,.4,1),transform .8s cubic-bezier(.2,.8,.4,1);}
 .rv.on{opacity:1;transform:none;}
 .rv2{opacity:0;transform:translateY(48px);transition:opacity .9s .12s cubic-bezier(.2,.8,.4,1),transform .9s .12s cubic-bezier(.2,.8,.4,1);}
 .rv2.on{opacity:1;transform:none;}
+
 
 nav{transition:background .5s,backdrop-filter .5s,border-bottom .5s;}
 nav.glassy{background:rgba(6,6,6,.7);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.05);}
@@ -206,37 +210,13 @@ nav.glassy{background:rgba(6,6,6,.7);backdrop-filter:blur(22px);-webkit-backdrop
 .gcard > *,.acell > *,.wcell > *{position:relative;z-index:1;}
 
 
-h1 {
-  font-family: 'Audiowide', sans-serif;
-  font-size: clamp(3.5rem, 9vw, 7rem);
-  font-weight: 400;
-  letter-spacing: .06em;
-  line-height: .95;
-  color: var(--white); /* Белый для основной части */
-  animation: fadeIn 1s 1.9s ease both;
-  opacity: 0;
-}
-
-h1 em {
-  font-style: italic;
-  color: transparent;
-  background: linear-gradient(135deg, #c9a84c 0%, #f0e0a0 45%, #c9a84c 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
+h1{font-family:'Russo One',sans-serif;font-size:clamp(3.5rem,9vw,7rem);font-weight:400;letter-spacing:.06em;line-height:.95;color:var(--white);animation:fadeIn 1s 1.9s ease both;opacity:0;}
+h1 em{font-style:italic;color:var(--gold-light);}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes shimmer{0%{background-position:100% 0;}100%{background-position:-100% 0;}}
 
 
-/* ── TOKEN SECTION ── */
+
 .token-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;border:1px solid var(--border);}
 @media(max-width:900px){.token-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.token-grid{grid-template-columns:1fr;}}
@@ -257,7 +237,7 @@ h1 em {
 .tbuy-link{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border:1px solid var(--gold-dim);color:var(--gold-light);border-radius:100px;text-decoration:none;transition:background .25s,border-color .25s;}
 .tbuy-link:hover{background:rgba(201,168,76,.1);border-color:var(--gold);}
 
-/* ══ LIGHT THEME ══ */
+
 html[data-theme="light"]{
   --black:#E8E4DC;
   --gold:#8B6914;
@@ -269,7 +249,7 @@ html[data-theme="light"]{
 html[data-theme="light"] body{background:#E8E4DC;color:#1a1916;}
 html[data-theme="light"] #aurora{display:none;}
 html[data-theme="light"] #c{opacity:1;z-index:1;}
-/* nav */
+
 html[data-theme="light"] nav{background:rgba(232,228,220,.96);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,0,0,.1);}
 html[data-theme="light"] nav.glassy{background:rgba(232,228,220,.98);}
 html[data-theme="light"] .logo{color:#0E0D0B;}html[data-theme="light"] .logo-img img{filter:brightness(0.15) saturate(0);}
@@ -279,7 +259,7 @@ html[data-theme="light"] .nav-btn{background:#0E0D0B;color:#F7F5F0;}
 html[data-theme="light"] .sw-btn{border-color:rgba(0,0,0,.1);color:rgba(0,0,0,.5);}
 html[data-theme="light"] .sw-sep{background:rgba(0,0,0,.07);}
 html[data-theme="light"] .sw-btn:hover,html[data-theme="light"] .sw-btn.active{border-color:var(--gold);color:var(--gold);background:transparent;}
-/* hero */
+
 html[data-theme="light"] h1{color:#0E0D0B !important;}
 html[data-theme="light"] h1 em{color:var(--gold) !important;}
 html[data-theme="light"] .hero-tag{color:rgba(0,0,0,.5);}
@@ -293,13 +273,13 @@ html[data-theme="light"] .btn-outline-gold{color:var(--gold);border-color:rgba(1
 html[data-theme="light"] .scroll-cue{color:rgba(0,0,0,.3);}
 html[data-theme="light"] .scroll-line{background:linear-gradient(to bottom,rgba(0,0,0,.2),transparent);}
 html[data-theme="light"] .mdot{background:rgba(0,0,0,.12);}
-/* layout */
+
 html[data-theme="light"] .wrap{background:transparent;}
 html[data-theme="light"] .divider{background:linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent);}
 html[data-theme="light"] .section-num{color:var(--gold);}
 html[data-theme="light"] .section-title{color:#0E0D0B;}
 html[data-theme="light"] .section-title em{color:var(--gold);}
-/* cards */
+
 html[data-theme="light"] .acell,
 html[data-theme="light"] .wcell,
 html[data-theme="light"] .gcard,
@@ -377,7 +357,7 @@ html[data-theme="light"] .wcell-note{color:rgba(0,0,0,.4);}
 html[data-theme="light"] .contest-header{background:rgba(255,252,240,.8);border-color:rgba(0,0,0,.1);color:rgba(0,0,0,.65);}
 html[data-theme="light"] .contest-header strong{color:var(--gold);}
 
-/* ══ SWITCHER BUTTON ══ */
+
 .switchers{display:flex;align-items:center;gap:8px;margin-left:16px;}
 .sw-btn{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif;}
 html[data-theme="light"] .sw-btn{border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4);}
@@ -386,7 +366,7 @@ html[data-theme="light"] .sw-btn:hover,html[data-theme="light"] .sw-btn.active{b
 .sw-sep{width:1px;height:14px;background:rgba(255,255,255,.12);}
 html[data-theme="light"] .sw-sep{background:rgba(0,0,0,.1);}
 
-/* ══ LANG — hide/show ══ */
+
 [data-ru]{display:block;}
 [data-en]{display:none;}
 span[data-ru],[data-ru].inline{display:inline;}
@@ -412,17 +392,17 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
 </style>
 </head>
 <body>
-<!-- LOADER -->
+
 <div id="loader">
   <div class="ld-wrap">
     <div class="ld-logo">TON-TAKE</div>
     <div class="ld-line"></div>
   </div>
 </div>
-<!-- CURSOR -->
+
 <div id="cur-ring"></div>
 <div id="cur-dot"></div>
-<!-- AURORA -->
+
 <canvas id="aurora"></canvas>
 <canvas id="c"></canvas>
 
@@ -445,14 +425,14 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
 </nav>
 
 <section id="hero">
-  <!-- Text centered over blob -->
+  
   <div class="hero-center">
     <p class="hero-tag">TON Network &nbsp;·&nbsp; Token TAKE</p>
     <h1><span data-ru>ТОН<em>ТЕЙК</em></span><span data-en>TON<em>TAKE</em></span></h1>
     <div class="hero-sub-line"></div>
   </div>
 
-  <!-- Bottom info strip like FroxWard -->
+  
   <div class="hero-bottom">
     <div class="hero-bottom-left">
       <div class="hero-label"><span data-ru>КРИПТО-КОМЬЮНИТИ</span><span data-en>CRYPTO COMMUNITY</span></div>
@@ -464,7 +444,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     </div>
   </div>
 
-  <!-- dot marquee strip -->
+  
   <div class="hero-marquee">
     <div class="hero-marquee-inner" id="mdots"></div>
   </div>
@@ -568,7 +548,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
   <h2 class="section-title rv"><span data-ru>Зарабатывай TAKE<br><em>играя в игры</em></span><span data-en>Earn TAKE<br><em>playing games</em></span></h2>
   <div class="games-grid rv2">
 
-    <!-- Card 1: TonTakeBot -->
+    
     <a class="gcard" href="https://t.me/TonTakeBot?start=invite_024bgdU37uBWZhLLm8GF" target="_blank">
       <div class="gcard-tag"><span data-ru>Бот · Telegram</span><span data-en>Bot · Telegram</span></div>
       <span class="gcard-badge"><span data-ru>Майнинг + Стейкинг</span><span data-en>Mining + Staking</span></span>
@@ -584,7 +564,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
       <span class="gcard-link"><span data-ru>Открыть бота</span><span data-en>Open bot</span> <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
     </a>
 
-    <!-- Card 2: Зерносклад -->
+    
     <a class="gcard" href="https://zernosklad.com/" target="_blank">
       <div class="gcard-tag"><span data-ru>Браузер · ПК</span><span data-en>Browser · PC</span></div>
       <span class="gcard-badge"><span data-ru>Кликер · Призовой фонд</span><span data-en>Clicker · Prize pool</span></span>
@@ -600,7 +580,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
       <span class="gcard-link"><span data-ru>Играть</span><span data-en>Play</span> <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
     </a>
 
-    <!-- Card 3: TonTake RoBot -->
+    
     <a class="gcard" href="https://t.me/TonTakeRoBot" target="_blank">
       <div class="gcard-tag"><span data-ru>Бот · Telegram</span><span data-en>Bot · Telegram</span></div>
       <span class="gcard-badge"><span data-ru>PvP · Турниры в TON</span><span data-en>PvP · TON Tournaments</span></span>
@@ -616,7 +596,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
       <span class="gcard-link"><span data-ru>Получить робота</span><span data-en>Get a robot</span> <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0 4H12M9 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg></span>
     </a>
 
-    <!-- Card 4: TONvsTAKE -->
+    
     <a class="gcard" href="https://tontake.com/" target="_blank">
       <div class="gcard-tag"><span data-ru>Браузер · Стратегия</span><span data-en>Browser · Strategy</span></div>
       <span class="gcard-badge"><span data-ru>P2P · Мультиплеер</span><span data-en>P2P · Multiplayer</span></span>
@@ -643,7 +623,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
   <p class="section-num rv"><span data-ru>05 — Токен</span><span data-en>05 — Token</span></p>
   <h2 class="section-title rv"><span data-ru>Токен <em>TAKE</em></span><span data-en>Token <em>TAKE</em></span></h2>
 
-  <!-- Buy bar -->
+  
   <div class="token-buy rv2">
     <div>
       <div class="token-buy-label"><span data-ru>Купить / Продать</span><span data-en>Buy / Sell</span></div>
@@ -656,7 +636,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     </div>
   </div>
 
-  <!-- Info cards -->
+  
   <div class="token-grid rv2">
     <div class="tcell" style="cursor:default;">
       <div class="tcell-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="opacity:.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></div>
@@ -684,7 +664,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
 
     <div class="tcell" style="cursor:default;">
       <div class="tcell-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="opacity:.6"><path d="M12 2l10 10-10 10L2 12z"/></svg></div>
-      <h3><span data-ru>Утилиты TAKE</span><span data-en>TAKE utility</span></h3>
+      <h3><span data-ru>Утилити TAKE</span><span data-en>TAKE utility</span></h3>
       <p style="margin-bottom:14px;color:rgba(255,255,255,.5);font-style:italic;"><span data-ru>$TAKE — электронные деньги проекта ТонТейк</span><span data-en>$TAKE — electronic money of the TonTake project</span></p>
       <div style="display:flex;flex-direction:column;gap:5px;">
         <a href="https://t.me/TonTakeBot?start=invite_3PVrq49U3wDag68qAJk4" target="_blank" style="font-size:.76rem;color:rgba(255,255,255,.35);text-decoration:none;display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s;" onmouseover="this.style.color='rgba(232,201,122,.8)'" onmouseout="this.style.color='rgba(255,255,255,.35)'"><span style="color:var(--gold);opacity:.6;flex-shrink:0;">·</span><span data-ru>Стейкинг — 0,1% TAKE в день</span><span data-en>Staking — 0.1% TAKE per day</span></a>
@@ -744,7 +724,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
 </div>
 
 <script>
-/* marquee dots */
+
 (function(){
   const el=document.getElementById('mdots');
   if(!el)return;
@@ -752,17 +732,17 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
   el.innerHTML=h+h;
 })();
 
-/* ══ AURORA — CSS-canvas gradient mesh ══ */
+
 (function(){
 
-  /* LOADER */
+  
   const loader = document.getElementById('loader');
   setTimeout(()=>{
     if(loader) loader.classList.add('out');
     setTimeout(()=>{ if(loader) loader.style.display='none'; }, 900);
   }, 1800);
 
-  /* CURSOR */
+  
   const dot  = document.getElementById('cur-dot');
   const ring = document.getElementById('cur-ring');
   let cx=innerWidth/2, cy=innerHeight/2, rx=cx, ry=cy;
@@ -783,7 +763,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     })();
   }
 
-  /* CARD SHINE */
+  
   document.querySelectorAll('.gcard,.acell,.wcell').forEach(el=>{
     el.addEventListener('mousemove', e=>{
       const r=el.getBoundingClientRect();
@@ -792,18 +772,18 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     });
   });
 
-  /* NAV GLASS */
+  
   const nav=document.querySelector('nav');
   const onScroll=()=>nav&&nav.classList.toggle('glassy',scrollY>30);
   window.addEventListener('scroll',onScroll,{passive:true});
 
-  /* SCROLL REVEAL */
+  
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('on'); obs.unobserve(e.target);} });
   },{threshold:.08});
   document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
 
-  /* AURORA CANVAS — animated gradient mesh, no three.js needed */
+  
   const cv = document.getElementById('aurora');
   if(!cv) return;
   const ctx = cv.getContext('2d');
@@ -813,7 +793,6 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
   resize();
   window.addEventListener('resize', resize);
 
-  // Orbs definition — each is a floating gradient blob
   const orbs = [
     { x:.5,  y:.45, r:.55, h:38,  s:.95, l:.08, speed:.00031, phase:0      },
     { x:.28, y:.55, r:.50, h:45,  s:.90, l:.06, speed:.00024, phase:1.1    },
@@ -839,14 +818,14 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     ctx.fillRect(0,0,W,H);
 
     for(const o of orbs){
-      // Gentle float
+
       const ox = (o.x + Math.sin(t*o.speed + o.phase)*0.08 + (mx-.5)*0.04) * W;
       const oy = (o.y + Math.cos(t*o.speed*1.3 + o.phase)*0.06 + (my-.5)*0.03) * H;
       const radius = o.r * Math.min(W,H);
 
       const grad = ctx.createRadialGradient(ox,oy,0, ox,oy,radius);
-      // Gold hue in HSL → convert to rgba for canvas
-      // hsl(38, 90%, 8%) core → transparent edge
+
+
       const alpha = o.l;
       grad.addColorStop(0, `rgba(201,152,50,${alpha})`);
       grad.addColorStop(.35,`rgba(180,120,30,${alpha*.6})`);
@@ -862,14 +841,12 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
       ctx.restore();
     }
 
-    // Subtle vignette
     const vig=ctx.createRadialGradient(W/2,H/2,H*.2, W/2,H/2,H*.85);
     vig.addColorStop(0,'rgba(0,0,0,0)');
     vig.addColorStop(1,'rgba(0,0,0,.65)');
     ctx.fillStyle=vig;
     ctx.fillRect(0,0,W,H);
 
-    // Gold horizon line at bottom of hero
     const heroH=innerHeight;
     const glowY=heroH*.92;
     const glow=ctx.createLinearGradient(0,glowY-30,0,glowY+30);
@@ -881,7 +858,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
   })();
 
 
-  /* ══ BLOCKCHAIN NETWORK — canvas 2D ══ */
+  
   (function(){
     const cv = document.getElementById('c');
     if(!cv) return;
@@ -891,7 +868,7 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
     resize();
     window.addEventListener('resize', resize);
 
-    /* ── NODES ── */
+    
     const N = 55;
     const nodes = [];
     for(let i = 0; i < N; i++){
@@ -921,18 +898,15 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
       t++;
       ctx.clearRect(0, 0, W, H);
 
-      // Colors per theme
       const goldLine  = isLight ? 'rgba(120,88,10,'  : 'rgba(201,168,76,';
       const goldNode  = isLight ? 'rgba(100,72,8,'   : 'rgba(220,185,90,';
       const glowCol   = isLight ? 'rgba(150,110,20,' : 'rgba(201,168,76,';
 
-      // Move nodes
       for(const n of nodes){
-        // Gentle drift
+
         n.x += n.vx;
         n.y += n.vy;
 
-        // Mouse repel (subtle)
         const dx = n.x - mx, dy = n.y - my;
         const dist = Math.sqrt(dx*dx + dy*dy);
         if(dist < 160 && dist > 0){
@@ -941,18 +915,15 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
           n.vy += (dy / dist) * force;
         }
 
-        // Dampen velocity
         n.vx *= 0.985;
         n.vy *= 0.985;
 
-        // Keep within bounds (wrap)
         if(n.x < -30) n.x = W + 30;
         if(n.x > W + 30) n.x = -30;
         if(n.y < -30) n.y = H + 30;
         if(n.y > H + 30) n.y = -30;
       }
 
-      // Draw connections
       for(let i = 0; i < N; i++){
         for(let j = i + 1; j < N; j++){
           const a = nodes[i], b = nodes[j];
@@ -970,12 +941,10 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
         }
       }
 
-      // Draw nodes
       for(const n of nodes){
         const pulse = Math.sin(t * 0.02 * n.speed + n.phase) * 0.5 + 0.5;
         const r = n.r * (0.85 + pulse * 0.3);
 
-        // Glow
         const gAlpha = (0.04 + pulse * 0.08) * (isLight ? 1.6 : 1);
         const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 7);
         grd.addColorStop(0, glowCol + gAlpha + ')');
@@ -985,7 +954,6 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
         ctx.arc(n.x, n.y, r * 7, 0, Math.PI * 2);
         ctx.fill();
 
-        // Core dot
         const cAlpha = 0.55 + pulse * 0.45;
         ctx.fillStyle = goldNode + cAlpha + ')';
         ctx.beginPath();
@@ -993,7 +961,6 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);}
         ctx.fill();
       }
 
-      // Mouse node — interactive cursor attractor
       const mg = ctx.createRadialGradient(mx, my, 0, mx, my, 60);
       mg.addColorStop(0, glowCol + (isLight ? '0.10' : '0.08') + ')');
       mg.addColorStop(1, glowCol + '0)');
